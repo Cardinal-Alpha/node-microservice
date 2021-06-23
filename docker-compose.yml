@@ -1,0 +1,38 @@
+version: "3.8"
+services: 
+
+    database:
+        image: postgres
+        environment:
+            POSTGRES_USER: pgroot
+            POSTGRES_PASSWORD: microDB@2021
+            POSTGRES_DB: storage
+        ports: 
+            - "5432:5432"
+        volumes:
+           - ./database_init:/docker-entrypoint-initdb.d
+           - varlib_pg:/var/lib/postgresql
+
+    
+    mqbroker:
+        image: rabbitmq:management
+        ports: 
+            - "15672:15672"
+        volumes: 
+            - varlib_rabbitmq:/var/lib/rabbitmq
+
+
+    service:
+        image: node-microservice
+        build: 
+            context: .
+            dockerfile: ./Dockerfile
+            target: dev
+        ports: 
+            - "3000:3000"
+        volumes: 
+            - ./sample:/home/backup
+
+volumes: 
+    varlib_pg:
+    varlib_rabbitmq:
