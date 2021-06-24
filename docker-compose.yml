@@ -31,7 +31,7 @@ services:
         ports: 
             - "3000:3000"
         volumes: 
-            - ./sample:/home/backup
+            - ./service:/home/backup
 
 volumes: 
     varlib_pg:
