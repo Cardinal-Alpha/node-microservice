@@ -1,0 +1,19 @@
+{
+  "name": "node-microservice",
+  "version": "1.0.0",
+  "description": "Portfolio of microservice using RabbitMQ and NodeJS with data import-export file use case",
+  "main": "service.js",
+  "repository": "https://github.com/Cardinal-Alpha/node-microservice",
+  "author": "Renaldi",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/amqplib": "^0.8.0",
+    "@types/express": "^4.17.12",
+    "amqplib": "^0.8.0",
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.2"
+  }
+}
